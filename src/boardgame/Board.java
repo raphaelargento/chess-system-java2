@@ -48,6 +48,20 @@ public class Board {
         piece.position = position;
     }
 
+    // Method for remove pieces
+    public Piece removePiece(Position position){
+        if (!positionExists(position)){
+            throw new BoardException("Position not on the board");
+        }
+        if (piece(position) == null){
+            return null;
+        }
+        Piece aux = piece(position);
+        aux.position = null;
+        pieces[position.getRow()][position.getColumn()] = null;
+        return aux;
+    }
+
     // The two methods above test if a position exist.
     // The first is based on the row and column informed.
     // The second is based on the position.
