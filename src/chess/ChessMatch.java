@@ -30,6 +30,13 @@ public class ChessMatch {
         return mat;
     }
 
+    public boolean[][] possibleMoves(ChessPosition sourcePosition){
+        Position position = sourcePosition.toPosition();
+        validateSourcePosition(position);
+        return board.piece(position).possibleMoves();
+    }
+
+
     // The next 3 methods are done to perform a chess move,
     // validating the position of the pieces.
     public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition){
